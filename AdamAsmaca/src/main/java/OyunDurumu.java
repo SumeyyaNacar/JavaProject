@@ -38,9 +38,12 @@ public class OyunDurumu {
         return dogruTahminSayisi ==tahminler.length;
     }
     public void durumGoster(){
-      //for (char harf:tahminler){
-      //    System.out.println(harf +" ");
-      //}
+      for (char harf:tahminler){
+        System.out.print(harf +" ");
+      }
+        System.out.println();
+        System.out.println("Kalan hak : "+ kalanHak);
     }
+
 
 }
