@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Kelime {
-    //POJO classes
+ 
 
     private String[] kelimeler = {"java", "programlama", "nesne", "yazılım", "bilgisayar"};
     private String kelime;
@@ -14,5 +14,5 @@ public class Kelime {
     public String getKelime() {
         return kelime;
     }
-    
+
 }
