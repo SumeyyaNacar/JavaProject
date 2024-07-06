@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Kelime {
- 
+
 
     private String[] kelimeler = {"java", "programlama", "nesne", "yazılım", "bilgisayar"};
     private String kelime;
