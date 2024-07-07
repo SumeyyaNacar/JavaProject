@@ -37,7 +37,4 @@ public class SifreOlusturucu {
         return sifre.toString();
     }
 
-    
-
-
 }
