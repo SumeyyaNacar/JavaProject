@@ -4,6 +4,7 @@ public class AnaProgram {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+
         System.out.print("Sifre uzunlugu giriniz : ");
         int uzunluk = scanner.nextInt();
 
@@ -20,9 +21,11 @@ public class AnaProgram {
         boolean ozelKarakter = scanner.nextBoolean();
 
         SifreAyarlar ayarlar = new SifreAyarlar(uzunluk, buyukHarf, kucukHarf, rakam, ozelKarakter);
-        SifreOlusturucu sifreOlusturucu = new SifreOlusturucu();
+        SifreOlusturucu olusturucu = new SifreOlusturucu();
 
-        
+        String rastgeleSifre = olusturucu.sifreOlustur(ayarlar);
+        System.out.println("Olusturulan sifre: " + rastgeleSifre);
+
 
 
     }
