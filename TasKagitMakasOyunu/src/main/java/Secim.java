@@ -19,5 +19,6 @@ public enum Secim {
             default:
                 return null;
         }
+
     }
 }
