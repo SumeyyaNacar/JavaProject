@@ -23,5 +23,4 @@ public class Oyuncu {
         dogruSayisi = 0;
     }
 
-    
 }
