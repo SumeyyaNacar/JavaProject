@@ -14,7 +14,39 @@ package aracSigorta;
 
      */
 
+import java.util.Scanner;
+
 public class AracSigortaApplication {
+    public static void main(String[] args) {
+        start();
+    }
+
+    private static void start() {
+        Scanner input = new Scanner(System.in);
+        boolean isFail;
+        do {
+            isFail =false;
+            //menu ve tarife sonemi secimi
+            System.out.println("--- Zorunlu Sigorta Primi Hesaplama---");
+            System.out.println("Tarife donemi seciniz : ");
+            System.out.println("1. Haziran 2022 ");
+            System.out.println("2. Aralik 2022 ");
+            int term = input.nextInt();
+            //tarife donemi dogru girmisse isleme devam et
+            //degilse uyari ver ve basa don
+            if (term ==1 || term ==2){
 
 
+            }else {
+                System.out.println("Hatali giris yaptiniz");
+                isFail= true;//dongu basa donecek
+            }
+
+
+
+
+
+        }while (isFail);
+
+    }
 }
