@@ -35,15 +35,16 @@ public class AracSigortaApplication {
             //tarife donemi dogru girmisse isleme devam et
             //degilse uyari ver ve basa don
             if (term ==1 || term ==2){
-
+                Arac arac = new Arac();
+                System.out.println("Lutfen arac tipini giriniz");
+                System.out.println("otomobil, kamyon, otobus, motosiklet");
+                arac.type = input.next();
+                
 
             }else {
                 System.out.println("Hatali giris yaptiniz");
                 isFail= true;//dongu basa donecek
             }
-
-
-
 
 
         }while (isFail);
