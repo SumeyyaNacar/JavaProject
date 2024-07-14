@@ -35,11 +35,36 @@ public class AracSigortaApplication {
             //tarife donemi dogru girmisse isleme devam et
             //degilse uyari ver ve basa don
             if (term ==1 || term ==2){
+                String termName = term ==1? "Haziran 2022": "Aralik 2022";
                 Arac arac = new Arac();
                 System.out.println("Lutfen arac tipini giriniz");
                 System.out.println("otomobil, kamyon, otobus, motosiklet");
                 arac.type = input.next();
-                
+                arac.prim = arac.countPrim(term);
+                int select;
+                if(arac.prim>0){
+                    System.out.println("Hesaplama basariyla tamamlandi.");
+                    System.out.println("Arac tipi : " + arac.type);
+                    System.out.println("Tarife donemi : "+ termName);
+                    System.out.println("Aracinizin ilgili tarife donemi sigorta primi :"+ arac.prim);
+                    System.out.println("Yeni islem icin 1, cikis icin 0 giriniz.");
+                    select = input.nextInt();
+                    if (select ==1){
+                        isFail =true;
+                    }else {
+                        isFail = false;
+                    }
+
+                }else {
+                    System.out.println("Hesaplama basarisiz");
+                    System.out.println("Yeni islem icin 1, cikis icin 0 giriniz.");
+                    select = input.nextInt();
+                    if ((select == 1)){
+                        isFail =true;
+                    }else {
+                        isFail =false;
+                    }
+                }
 
             }else {
                 System.out.println("Hatali giris yaptiniz");
@@ -48,6 +73,7 @@ public class AracSigortaApplication {
 
 
         }while (isFail);
+        System.out.println("Iyi gunler dileriz..");
 
     }
 }
