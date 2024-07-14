@@ -1,6 +1,8 @@
+import java.util.Scanner;
+
 public class BiletRezervasyon {
 /*
-Project: mesafeye ve sartlara gore ucak bileti fiyati hesaplayan uygulama
+Project: mesafeye ve sartlara gore otobus bileti fiyati hesaplayan uygulama
          Kullanicidan mesafe(km), yasi ve yolculuk tipi(Tek Yon, Gidis-Donus)
          koltuk no. bilgilerini alin.
          Mesafe basina ucret 1 TL/km olarak alin (Gidis-Donus*2)
@@ -16,6 +18,17 @@ Project: mesafeye ve sartlara gore ucak bileti fiyati hesaplayan uygulama
             Kisi 65 yasindan buykse bilet fiyati uzerinden %30 indirim uygulanir.
          3. Tekli Koltuk Ucreti:
             Koltuk numarasi 3 veya 3 un kati ise bilet fiyati %20 artirilir.
+
+
  */
 
+    public static void main(String[] args) {
+        Bilet bilet = new Bilet();
+        start();
+    }
+
+    private static void start() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("=== Bilet Rezarvasyon Uygulamasi ===");
+    }
 }
