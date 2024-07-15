@@ -11,7 +11,7 @@ public class Hasta extends Kullanici{
         super(id, kullaniciAdi, sifre, rol);
     }
 
-    private RandevuIslemleri randevuIslemleri;
+    private RandevuIslemleri randevuIslemleri;//object urettik
     @Override
     public void menu() {
        while (true){
