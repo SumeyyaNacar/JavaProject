@@ -13,9 +13,11 @@ public abstract class Kullanici {
     //protected: ayni paket icerisinden veya alt siniflardan erisilebilir
     //default : Ayni paket icerisinden erisilebilir
 
-
+    //constructor(kurucu method)
+    //Bir classtan yeni bir obje olusturdugumuzda ilk calisan method
+    //Genelde classlarin degiskenlerini baslatmak icin kullanilir
     public Kullanici(int id, String kullaniciAdi, String sifre, String rol) {
-        this.id = id;
+        this.id = id;//class'in id degiskenine erisim saglar ve onu verilen id degeri ile baslatir.
         this.kullaniciAdi = kullaniciAdi;
         this.sifre = sifre;
         this.rol = rol;
@@ -44,5 +46,8 @@ public abstract class Kullanici {
     public String getRol() {
         return rol;
     }
+
+    public abstract void menu();//soyut method varsa ve extends edildiyse onu child classlar kullanmak zorunda
+
 
 }
