@@ -1,4 +1,4 @@
 package kullanici;
 
-public class Doktor {
+public class Doktor extends Kullanici{
 }

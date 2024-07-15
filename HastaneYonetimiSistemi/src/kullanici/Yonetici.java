@@ -1,4 +1,4 @@
 package kullanici;
 
-public class Yonetici {
+public class Yonetici extends Kullanici{
 }

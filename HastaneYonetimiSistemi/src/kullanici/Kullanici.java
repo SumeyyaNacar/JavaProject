@@ -1,4 +1,5 @@
 package kullanici;
 
-public class Kullanici {
+public abstract class Kullanici {
+    
 }

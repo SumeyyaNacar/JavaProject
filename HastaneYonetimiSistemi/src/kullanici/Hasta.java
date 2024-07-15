@@ -1,4 +1,4 @@
 package kullanici;
 
-public class Hasta {
+public class Hasta extends Kullanici{
 }
