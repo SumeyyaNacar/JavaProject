@@ -12,7 +12,7 @@ public class Hasta extends Kullanici {
     // Hasta sınıfının kurucusu
     // Kurucu metod, hastanın kimlik numarası, adı, şifresi, yaşı ve kullanıcı işlemleri nesnesini alır.
     // Bu bilgiler, hasta nesnesi oluşturulduğunda başlatılır.
-    public Hasta(int id, String kullaniciAdi, String sifre, int yas, KullaniciIslemler kullaniciIslemleri) {
+    public Hasta(int id, String kullaniciAdi, String sifre, int yas, KullaniciIslemleri kullaniciIslemleri) {
         super(id, kullaniciAdi, sifre, "Hasta"); // Üst sınıfın (Kullanici) kurucu metodunu çağırır.
         this.yas = yas; // Hastanın yaşını başlatır.
         //this.randevuIslemleri = new RandevuIslemleri(kullaniciIslemleri); // Randevu işlemleri nesnesini başlatır.
