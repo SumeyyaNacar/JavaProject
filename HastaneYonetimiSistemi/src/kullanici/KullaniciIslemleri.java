@@ -46,27 +46,28 @@ public class KullaniciIslemleri {
 
         // Bunu yapmasaydım metot içerisinde Kullanici kullanici=New Kullanici().... diye obje yaratmam gerekirdi, her seferinde bunu yapmak yerine bu daha iyi bir kullanımdır.
 
-        String rol = kullanici.getRol();
-
         try {
             // instanceof operatörü, bir nesnenin belirli bir sınıfa ait olup olmadığını kontrol eder.
             // Bu bir ek bilgidir bu equals ile aynı işlemi yapar equals ile de yapabiliriz.
             // İki kullanımında örneği vardır.
             // Bu operatör, polymorphism  kavramıyla birlikte kullanılır.
-            // Bunu bir ifadeden ziyade bir yetenek gibi düşünelim. Bu yeteneğe sahip olan bir nesne (polymorphism)   birden fazla formda olabilir, kod kısmında daha iyi anlaşılacaktır.
+            // Bunu bir ifadeden ziyade bir yetenek gibi düşünelim. Bu yeteneğe sahip olan bir nesne (polymorphism)
+            // birden fazla formda olabilir, kod kısmında daha iyi anlaşılacaktır.
 
             // Bu durumda, kullanıcının Doktor veya Hasta olup olmadığını kontrol ederiz.
 
             //Kullanıcı eklenirken id ataması yapmalıyız;
 
-              // if (rol.equals("Doktor")){
-              //
-              // }
+            //String rol = kullanici.getRol();
+            // if (rol.equals("Doktor")){
+            //
+            // }elseif("Hasta".equals.rol){
+            // }
 
             if (kullanici instanceof Doktor) { // Eğer kullanıcı Doktor ise
 
                 // kullanici.getClass().equals(Doktor.class) // Aynı işlemi yapar....
-                
+
                 kullanici.setId(doktorIdSayac++); // Doktor ID sayacını kullanarak ID atar ve sayaç değerini artırır
                 //Yukarda başlangıç değerini vermiştik...
             } else if (kullanici instanceof Hasta) { // Eğer kullanıcı Hasta ise
@@ -163,15 +164,10 @@ public class KullaniciIslemleri {
 
         // Biz bu gelenler, liste içinde var mı kontrol edeceğiz ve ona göre giriş yapacak.
 
-        // İşte bir örnek.
-
-        // for (Kullanici kullanici : kullanicilar) {
-        //     if (kullanici.getKullaniciAdi().equals(kullaniciAdi) && kullanici.getSifre().equals(sifre)) {
-        //        return kullanici; // Kullanıcı adı ve şifre doğru ise kullanıcıyı döndürür.
-        //     }
-        //  }
-
-
-        return null; // Kullanıcı adı veya şifre yanlış ise null döndürür.
+       for (Kullanici kullanici : kullanicilar) {
+           if (kullanici.getKullaniciAdi().equals(kullaniciAdi) && kullanici.getSifre().equals(sifre)) {
+              return kullanici; // Kullanıcı adı ve şifre doğru ise kullanıcıyı döndürür.
+           }
+        }return null; // Kullanıcı adı veya şifre yanlış ise null döndürür.
     }
 }
