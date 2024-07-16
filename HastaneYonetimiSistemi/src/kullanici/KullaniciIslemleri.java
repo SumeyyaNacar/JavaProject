@@ -46,7 +46,7 @@ public class KullaniciIslemleri {
 
         // Bunu yapmasaydım metot içerisinde Kullanici kullanici=New Kullanici().... diye obje yaratmam gerekirdi, her seferinde bunu yapmak yerine bu daha iyi bir kullanımdır.
 
-
+        String rol = kullanici.getRol();
 
         try {
             // instanceof operatörü, bir nesnenin belirli bir sınıfa ait olup olmadığını kontrol eder.
@@ -59,11 +59,14 @@ public class KullaniciIslemleri {
 
             //Kullanıcı eklenirken id ataması yapmalıyız;
 
+              // if (rol.equals("Doktor")){
+              //
+              // }
+
             if (kullanici instanceof Doktor) { // Eğer kullanıcı Doktor ise
 
                 // kullanici.getClass().equals(Doktor.class) // Aynı işlemi yapar....
-
-
+                
                 kullanici.setId(doktorIdSayac++); // Doktor ID sayacını kullanarak ID atar ve sayaç değerini artırır
                 //Yukarda başlangıç değerini vermiştik...
             } else if (kullanici instanceof Hasta) { // Eğer kullanıcı Hasta ise
