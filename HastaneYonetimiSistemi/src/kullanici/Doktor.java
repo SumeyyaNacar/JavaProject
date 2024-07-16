@@ -34,7 +34,7 @@ public class Doktor extends Kullanici {
     public Doktor(int id, String kullaniciAdi, String sifre, String brans, KullaniciIslemleri kullaniciIslemleri) {
         super(id, kullaniciAdi, sifre, "Doktor"); // Üst sınıfın (Kullanici) kurucu metodunu çağırır.
         this.brans = brans; // Doktorun branşını başlatır.
-       this.randevuIslemleri = new RandevuIslemleri(kullaniciIslemleri); // Randevu işlemleri nesnesini başlatır.
+        this.randevuIslemleri = new RandevuIslemleri(kullaniciIslemleri); // Randevu işlemleri nesnesini başlatır.
         this.raporIslemleri = new RaporIslemleri(); // Rapor işlemleri nesnesini başlatır.
         this.bildirimIslemleri = new BildirimIslemleri(); // Bildirim işlemleri nesnesini başlatır.
         this.ilacIslemleri = new IlacIslemleri(); // İlaç işlemleri nesnesini başlatır.
