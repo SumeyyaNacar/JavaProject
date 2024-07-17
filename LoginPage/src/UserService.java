@@ -74,7 +74,7 @@ public class UserService {
         boolean isUserName = this.usernames.contains(userNameOrEmail);
         boolean isEmail = this.emails.contains(userNameOrEmail);
         if (isUserName || isEmail) {
-            boolean isWrong = true//bu sifre kullanici adi veya email ile eslesiyor mu?
+            boolean isWrong = true;//bu sifre kullanici adi veya email ile eslesiyor mu?
             while (isWrong) {
                 System.out.print("Sifre giriniz : ");
                 String password = inp.next();
