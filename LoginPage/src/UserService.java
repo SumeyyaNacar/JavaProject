@@ -11,29 +11,73 @@ public class UserService {
     List<String> passwords = new ArrayList<>();
 
 
-    public void register(){//kullanici kaydi olusturacaz
+    public void register() {//kullanici kaydi olusturacaz
         Scanner inp = new Scanner(System.in);
         System.out.print("Ad-Soyad giriniz : ");
         String name = inp.nextLine();
 
         String userName;
-        boolean existsUserName;
+        boolean existsUserName;//username listede varsa true, yoksa false donecek
         do {
             System.out.print("Kullanici adi giriniz");
             userName = inp.nextLine();
-            existsUserName=this.usernames.contains(userName);//this-> bize boolen bir deger dondurur
+            existsUserName = this.usernames.contains(userName);//this-> bize boolen bir deger dondurur
             //bu classtan uretmis oldugum objenin temsilcisi this. bununla usernames listesine git
             //kullanicidan gelen userName ile kiyasla. eger listede kullanicidan gelen bir userName
             //varsa true, yoksa false dondurecek.
-            if (existsUserName){//eger username listte varsa true donecek ve if calisacak
+            if (existsUserName) {//eger username listte varsa true donecek ve if calisacak
                 System.out.println("Bu username kullanilmis, farkli bir username deneyiniz.");
             }
-        }while (existsUserName);
+        } while (existsUserName);
+        usernames.add(userName);//listeye ekle
+
+        String email;
+        boolean existsEmail;
+        do {
+            System.out.println("Email giriniz");
+            email = inp.nextLine();
+            existsEmail = this.emails.contains(email);
+            if (existsEmail){
+                System.out.println("Bu email zaten kayitli, farkli bir email giriniz");
+            }
 
 
+        } while (existsEmail);
+        emails.add(email);
 
 
+    }
 
+    public boolean validateEmail(String email){
+        boolean isValid;
+        boolean space = email.contains(" ");
+        boolean isContainsAt = email.contains("@");
+        if (space){
+            System.out.println("Email bosluk iceremez");
+            isValid = false;
+        } else if (!isContainsAt) {
+            System.out.println("Email @ sembolu icermelidir.");
+            isValid=false;
+        }else {//2 alan kontrolu var. 1-username kismi, 2-mail uzantisi kismi
+            String firstPart = email.split("@")[0];
+            String secondPart = email.split("@")[1];
+
+            int notValid = firstPart.replaceAll("[A-Za-z0-9]","").length();
+            boolean checkStart = notValid==0;
+
+            boolean checkEnd = secondPart.equals("gmail.com")||
+                                secondPart.equals("hotmail.com")||
+                                secondPart.equals("yahoo.com");
+
+            if (!checkStart){
+                System.out.println("email kullanici adi buyuk harf, kucuk harf, rakam, -,.,_ sisinda karakter iceremez");
+            } else if (!checkEnd) {
+                System.out.println("email gmail.com, hotmail.com yaha yahoo.com ile bitmelidir!");
+            }
+            isValid= checkEnd&&checkStart;
+
+        }
+        return isValid;
     }
 
 }
