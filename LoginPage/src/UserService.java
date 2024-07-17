@@ -37,7 +37,7 @@ public class UserService {
             System.out.println("Email giriniz");
             email = inp.nextLine();
             existsEmail = this.emails.contains(email);
-            if (existsEmail){
+            if (existsEmail) {
                 System.out.println("Bu email zaten kayitli, farkli bir email giriniz");
             }
 
@@ -45,39 +45,76 @@ public class UserService {
         } while (existsEmail);
         emails.add(email);
 
-
     }
 
-    public boolean validateEmail(String email){
+    public boolean validateEmail(String email) {
         boolean isValid;
         boolean space = email.contains(" ");
         boolean isContainsAt = email.contains("@");
-        if (space){
+        if (space) {
             System.out.println("Email bosluk iceremez");
             isValid = false;
         } else if (!isContainsAt) {
             System.out.println("Email @ sembolu icermelidir.");
-            isValid=false;
-        }else {//2 alan kontrolu var. 1-username kismi, 2-mail uzantisi kismi
+            isValid = false;
+        } else {//2 alan kontrolu var. 1-username kismi, 2-mail uzantisi kismi
             String firstPart = email.split("@")[0];
             String secondPart = email.split("@")[1];
 
-            int notValid = firstPart.replaceAll("[A-Za-z0-9]","").length();
-            boolean checkStart = notValid==0;
+            int notValid = firstPart.replaceAll("[A-Za-z0-9]", "").length();
+            boolean checkStart = notValid == 0;
 
-            boolean checkEnd = secondPart.equals("gmail.com")||
-                                secondPart.equals("hotmail.com")||
-                                secondPart.equals("yahoo.com");
-
-            if (!checkStart){
+            boolean checkEnd = secondPart.equals("gmail.com") ||
+                    secondPart.equals("hotmail.com") ||
+                    secondPart.equals("yahoo.com");
+            if (!checkStart) {
                 System.out.println("email kullanici adi buyuk harf, kucuk harf, rakam, -,.,_ sisinda karakter iceremez");
             } else if (!checkEnd) {
                 System.out.println("email gmail.com, hotmail.com yaha yahoo.com ile bitmelidir!");
             }
-            isValid= checkEnd&&checkStart;
-
+            isValid = checkEnd && checkStart;
+        }
+        if (!isValid) {
+            System.out.println("Gecersiz email, tekrar deneyiniz!");
         }
         return isValid;
+    }
+
+    public boolean validatePassword(String password) {
+        boolean isValid;
+        String upperLetter = password.replaceAll("[^A-Z]", "");
+        String lowerLetter = password.replaceAll("[^a-z]", "");
+        String digits = password.replaceAll("[\\D]", "");
+        String symbol = password.replaceAll("[\\p{Punct}]", "");
+
+        boolean space = password.contains(" ");
+        boolean lengthGT6 = password.length() >= 6;
+        boolean existsUpper = upperLetter.length() > 0;
+        boolean existsLower = lowerLetter.length() > 0;
+        boolean existsDigit = digits.length() > 0;
+        boolean existsSymbol = symbol.length() > 0;
+
+        isValid = !space && lengthGT6 && existsUpper && existsLower && existsDigit && existsSymbol;
+        if (space){
+            System.out.println("Sifre bosluk iceremez");
+        } else if (!lengthGT6) {
+            System.out.println("Sifre en az 6 karakter icermelidir.");
+        }else if (!existsUpper){
+            System.out.println("Sifre en az bir tane buyuk harf icermelidir.");
+        }else if (!existsLower){
+            System.out.println("Sifre en az bir tane kucuk harf icermelidir.");
+        } else if (!existsDigit) {
+            System.out.println("Sifre en az bir tane rakam icermelidir");
+        }else if (!existsSymbol{
+            System.out.println("Sifre en az bir tane sembol icermelidir");
+        }
+        if (!isValid){
+            System.out.println("Gecersiz password, tekrar deneyiniz!");
+        }
+
+
+        return isValid;
+
     }
 
 }
