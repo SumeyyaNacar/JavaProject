@@ -19,7 +19,7 @@ public class UserService {
         String userName;
         boolean existsUserName;//username listede varsa true, yoksa false donecek
         do {
-            System.out.print("Kullanici adi giriniz");
+            System.out.print("Kullanici adi giriniz : ");
             userName = inp.nextLine();
             existsUserName = this.usernames.contains(userName);//this-> bize boolen bir deger dondurur
             //bu classtan uretmis oldugum objenin temsilcisi this. bununla usernames listesine git
@@ -29,23 +29,76 @@ public class UserService {
                 System.out.println("Bu username kullanilmis, farkli bir username deneyiniz.");
             }
         } while (existsUserName);
-        usernames.add(userName);//listeye ekle
 
         String email;
         boolean existsEmail;
+        boolean isValid;
         do {
-            System.out.println("Email giriniz");
-            email = inp.nextLine();
+            System.out.print("Email giriniz : ");
+            email = inp.nextLine().trim();
             existsEmail = this.emails.contains(email);
+            isValid = validateEmail(email);//methodu cagirip kontrol yaptik
             if (existsEmail) {
                 System.out.println("Bu email zaten kayitli, farkli bir email giriniz");
+                isValid = false;//tekrar basa donsun
             }
 
+        } while (!isValid);
 
-        } while (existsEmail);
-        emails.add(email);
+
+        String password;
+        boolean isValidPassword;
+        do {
+            System.out.print("Sifrenizi giriniz : ");
+            password = inp.nextLine().trim();
+            isValidPassword = validatePassword(password);
+        } while (!isValidPassword);
+
+        //kullanicidan alinan bilgileri kullanarak bir user olusturabilirim.
+        // Bunun icin User class'indan user object olusturduk
+        User user = new User(name, userName, email, password);
+        this.usernames.add(user.username);
+        this.emails.add(user.email);
+        this.passwords.add(user.password);
+        System.out.println("Tebrikler, isleminiz basariyla gerceklestirildi.");
+        System.out.println("Kullanici adi veya email ile sisteme giris yapabilirsiniz");
+
 
     }
+
+    public void login() {
+        Scanner inp = new Scanner(System.in);
+        System.out.print("Kullanici adi veya email giriniz : ");
+        String userNameOrEmail = inp.next();
+        //kullanicinin girdigi deger email mi username mi?
+        boolean isUserName = this.usernames.contains(userNameOrEmail);
+        boolean isEmail = this.emails.contains(userNameOrEmail);
+        if (isUserName || isEmail) {
+            boolean isWrong = true//bu sifre kullanici adi veya email ile eslesiyor mu?
+            while (isWrong) {
+                System.out.print("Sifre giriniz : ");
+                String password = inp.next();
+                //username/email ile sifre eslesmeli-ayni indexte olmali
+                int index;
+                if (isUserName){
+                    index = this.usernames.indexOf(userNameOrEmail);//usernames listesinde eslesen indexi bul
+                }else {
+                    index = this.emails.indexOf(userNameOrEmail);//emails listesinde eslesen indexi bul
+                }
+                if (this.passwords.get(index).equals(password)){//password listesindeki sifre ile kullanicinin girdigi sifre eslesiyor mu
+                    System.out.println("Sisteme giris yaptiniz. Hosgeldiniz !");
+                }else {
+                    System.out.println("Sifreniz yanlis, tekrar deneyiniz");
+                }
+                isWrong = false;//donguyu kir ve cik
+            }
+        } else {
+            System.out.println("Sisteme kayitli kullanici bulunamadi");
+            System.out.println("Uyeyseniz bilgilerinizi kontrol ediniz, degilseniz uye olunuz!");
+        }
+
+    }
+
 
     public boolean validateEmail(String email) {
         boolean isValid;
@@ -94,27 +147,26 @@ public class UserService {
         boolean existsDigit = digits.length() > 0;
         boolean existsSymbol = symbol.length() > 0;
 
-        isValid = !space && lengthGT6 && existsUpper && existsLower && existsDigit && existsSymbol;
-        if (space){
+        if (space) {
             System.out.println("Sifre bosluk iceremez");
         } else if (!lengthGT6) {
             System.out.println("Sifre en az 6 karakter icermelidir.");
-        }else if (!existsUpper){
+        } else if (!existsUpper) {
             System.out.println("Sifre en az bir tane buyuk harf icermelidir.");
-        }else if (!existsLower){
+        } else if (!existsLower) {
             System.out.println("Sifre en az bir tane kucuk harf icermelidir.");
         } else if (!existsDigit) {
             System.out.println("Sifre en az bir tane rakam icermelidir");
-        }else if (!existsSymbol{
+        } else if (!existsSymbol) {
             System.out.println("Sifre en az bir tane sembol icermelidir");
         }
-        if (!isValid){
+        isValid = !space && lengthGT6 && existsUpper && existsLower && existsDigit && existsSymbol;
+        if (!isValid) {
             System.out.println("Gecersiz password, tekrar deneyiniz!");
         }
-
-
         return isValid;
 
     }
+
 
 }
