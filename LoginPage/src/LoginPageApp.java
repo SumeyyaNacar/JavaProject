@@ -34,6 +34,8 @@ Project: Bir siteye üye olma ve giriş yapma sayfası tasarlayınız.
 
     private static void start() {
         Scanner scanner = new Scanner(System.in);
+        UserService service = new UserService();
+        //userservice classindan methoda direk ulasamam. bununicin objecte ihtiyac var. (methodu static yapmamistik)
         System.out.println("=== TECHPROEDUCATION ===");
         int select;
         do {
@@ -42,6 +44,10 @@ Project: Bir siteye üye olma ve giriş yapma sayfası tasarlayınız.
             switch (select){
                 case 1:
                     //uye olma
+                    service.register();
+                    System.out.println(service.usernames);
+                    System.out.println(service.emails);
+                    System.out.println(service.passwords);
                     break;
                 case 2:
                     //giris yapma
