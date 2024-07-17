@@ -51,6 +51,7 @@ Project: Bir siteye üye olma ve giriş yapma sayfası tasarlayınız.
                     break;
                 case 2:
                     //giris yapma
+                    service.login();
                     break;
                 case 0:
                     System.out.println("Iyi gunler dileriz...");
