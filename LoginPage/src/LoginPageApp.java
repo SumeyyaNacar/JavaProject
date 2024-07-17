@@ -55,7 +55,6 @@ Project: Bir siteye üye olma ve giriş yapma sayfası tasarlayınız.
         }while (select != 0);
 
 
-
     }
 
     private static void showMenu() {
