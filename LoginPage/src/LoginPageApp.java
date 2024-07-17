@@ -48,6 +48,7 @@ Project: Bir siteye üye olma ve giriş yapma sayfası tasarlayınız.
                     break;
                 case 0:
                     System.out.println("Iyi gunler dileriz...");
+                    break;
 
                 default:
                     System.out.println("Hatali giris yaptiniz, tekrar deneyiniz...");
