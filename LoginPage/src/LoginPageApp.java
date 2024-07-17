@@ -37,7 +37,7 @@ Project: Bir siteye üye olma ve giriş yapma sayfası tasarlayınız.
         System.out.println("=== TECHPROEDUCATION ===");
         int select;
         do {
-            showMenu();
+            showMenu();//menuyu tekrar tekrar gormesi icin method yaptik ve bunu cagirdik
             select = scanner.nextInt();
             switch (select){
                 case 1:
@@ -47,7 +47,7 @@ Project: Bir siteye üye olma ve giriş yapma sayfası tasarlayınız.
                     //giris yapma
                     break;
                 case 0:
-                    System.out.println("Iyi gunşer dileriz...");
+                    System.out.println("Iyi gunler dileriz...");
 
                 default:
                     System.out.println("Hatali giris yaptiniz, tekrar deneyiniz...");
@@ -60,7 +60,7 @@ Project: Bir siteye üye olma ve giriş yapma sayfası tasarlayınız.
     private static void showMenu() {
         System.out.println("1- Uye ol");
         System.out.println("2- Giris Yap");
-        System.out.println("0- Cisik");
+        System.out.println("0- Cikis");
         System.out.println("Seciminiz : ");
     }
 
