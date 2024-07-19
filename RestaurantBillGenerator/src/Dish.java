@@ -6,7 +6,7 @@ public class Dish {
     private String name;
     private Double price;
 
-    public Dish(Double price, String name, int code) {
+    public Dish(int code,String name, Double price) {
         this.price = price;
         this.name = name;
         this.code = code;
