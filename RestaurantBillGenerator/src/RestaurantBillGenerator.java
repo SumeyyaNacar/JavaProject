@@ -25,9 +25,15 @@ public class RestaurantBillGenerator {
    }
 
     private static void start() {
+        DishService dishService = new DishService();//object olusturduk
+        dishService.fillDishList();//yemekler eklenecek
+        getSelectionMenu(dishService);
+
+
     }
-    public static void selectionMenu(){
+    public static void getSelectionMenu(DishService dishService){//obje olusturarak cagirmak yerine data type olarak parametre girdik
         Scanner input = new Scanner(System.in);
+
         int select =-1;
         while (select!=0){
             System.out.println("========================================");
@@ -42,16 +48,16 @@ public class RestaurantBillGenerator {
             System.out.println("========================================");
             switch (select){
                 case 1:
-                    menu();
+                    dishService.showDishMenu();
                     break;
                 case 2:
-                    siparisGirme();
+                    //siparisGirme
                     break;
                 case 3:
-                    siparisIptalEtme();
+                    //siparisIptalEtme
                     break;
                 case 4:
-                    hesapOlusturma();
+                    //hesapOlusturma
                     break;
                 case 0:
                     break;
