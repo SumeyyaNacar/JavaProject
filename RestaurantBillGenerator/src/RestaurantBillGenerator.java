@@ -48,6 +48,7 @@ public class RestaurantBillGenerator {
             System.out.println("========================================");
             switch (select){
                 case 1:
+                    //menu gosterme
                     dishService.showDishMenu();
                     break;
                 case 2:
