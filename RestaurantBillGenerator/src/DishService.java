@@ -9,14 +9,14 @@ public class DishService {
     public void fillDishList(){
         Dish dish1 = new Dish(100, "Adana Kebap", 220.0);
         Dish dish2 = new Dish(101, "Urfa Kebap", 220.0);
-        Dish dish3 = new Dish(103, "Çökertme Kebabı", 200.0);
-        Dish dish4 = new Dish(104, "Baklava", 100.0);
-        Dish dish5 = new Dish(105, "Kadayif", 85.0);
-        Dish dish6 = new Dish(106, "Künefe", 75.0);
-        Dish dish7 = new Dish(107, "Yayık Ayranı", 30.0);
-        Dish dish8 = new Dish(108, "Kola", 35.0);
-        Dish dish9 = new Dish(109, "Çay", 15.0);
-        Dish dish10 = new Dish(110, "Su", 7.5);
+        Dish dish3 = new Dish(102, "Çökertme Kebabı", 200.0);
+        Dish dish4 = new Dish(103, "Baklava", 100.0);
+        Dish dish5 = new Dish(104, "Kadayif", 85.0);
+        Dish dish6 = new Dish(105, "Künefe", 75.0);
+        Dish dish7 = new Dish(106, "Yayık Ayranı", 30.0);
+        Dish dish8 = new Dish(107, "Kola", 35.0);
+        Dish dish9 = new Dish(108, "Çay", 15.0);
+        Dish dish10 = new Dish(109, "Su", 7.5);
 
         this.dishList.add(dish1);//bu classin objesine ekle
         this.dishList.add(dish2);
