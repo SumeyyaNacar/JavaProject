@@ -58,16 +58,17 @@ public class RestaurantBillGenerator {
                     break;
                 case 3:
                     //siparisIptalEtme
+                    orderService.deleteOrder();
                     break;
                 case 4:
                     //hesapOlusturma
+
                     break;
                 case 0:
                     break;
                 default:
                     System.out.println("Hatali giris yaptiniz");
             }
-
         }
         System.out.println("Iyi gunler dileriz");
 
