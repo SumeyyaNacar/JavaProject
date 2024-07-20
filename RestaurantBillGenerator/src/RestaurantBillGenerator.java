@@ -62,7 +62,7 @@ public class RestaurantBillGenerator {
                     break;
                 case 4:
                     //hesapOlusturma
-
+                    orderService.printBill();
                     break;
                 case 0:
                     break;
