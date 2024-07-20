@@ -39,9 +39,7 @@ public class DishService {
 
 
     }
-    public void siparisGirme(){
 
-    }
 
 
 
