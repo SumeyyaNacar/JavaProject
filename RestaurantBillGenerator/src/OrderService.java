@@ -14,7 +14,7 @@ public class OrderService {
             System.out.print("Lutfen urun kodunu giriniz : (Cikis: O)");
             dishCode = inp.nextInt();//girilen kod ile urunu bulmamiz gerekiyor
 
-            
+
 
 
         }
