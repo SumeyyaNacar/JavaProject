@@ -33,7 +33,7 @@ public class OrderService {
     public void deleteOrder() {
         boolean isValid = true;
         if (orderList.isEmpty()) {
-            System.out.println("Sipraisiniz bulunmamaktadir.");
+            System.out.println("Siparisiniz bulunmamaktadir.");
         } else {
             System.out.print("Iptal etmek istediginiz siparisin kodunu giriniz : ");
             int code = inp.nextInt();
@@ -42,6 +42,7 @@ public class OrderService {
                     this.orderList.remove(order);
                     System.out.println("Siparisiniz iptal edildi : " + order.dish.toString());
                     isValid = true;
+                    break;
                 } else {
                     isValid = false;
                 }
