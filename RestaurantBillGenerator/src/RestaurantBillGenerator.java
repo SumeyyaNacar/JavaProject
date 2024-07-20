@@ -25,13 +25,14 @@ public class RestaurantBillGenerator {
    }
 
     private static void start() {
+       OrderService orderService= new OrderService();
         DishService dishService = new DishService();//object olusturduk
         dishService.fillDishList();//yemekler eklenecek
-        getSelectionMenu(dishService);
+        getSelectionMenu(dishService,orderService);
 
 
     }
-    public static void getSelectionMenu(DishService dishService){//obje olusturarak cagirmak yerine data type olarak parametre girdik
+    public static void getSelectionMenu(DishService dishService, OrderService orderService){//obje olusturarak cagirmak yerine data type olarak parametre girdik
         Scanner input = new Scanner(System.in);
 
         int select =-1;
@@ -53,6 +54,7 @@ public class RestaurantBillGenerator {
                     break;
                 case 2:
                     //siparisGirme
+                    orderService.createOrder(dishService);
                     break;
                 case 3:
                     //siparisIptalEtme
