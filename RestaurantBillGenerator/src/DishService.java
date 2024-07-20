@@ -39,7 +39,19 @@ public class DishService {
 
 
     }
-    public
+    public Dish findDishCode(int code){
+        if (code == 0){
+            System.out.println("Ana menuye yonlendiriliyorsunuz");
+        }else {
+            for (Dish dish: this.dishList){
+                if (dish.getCode() ==code){
+                    return dish;
+                }
+            }
+            System.out.println("Urun bulunamadi");
+        }
+        return new Dish(0,"",0.0);
+    }
 
 
 
