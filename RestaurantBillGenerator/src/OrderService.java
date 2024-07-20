@@ -54,12 +54,11 @@ public class OrderService {
     }
 
     public void printBill(){
-        Double totalPrice = 0.0;
+        double totalPrice = 0.0;
         System.out.println("            Lezzet Fisiniz          ");
         for (Order order: this.orderList){
-            System.out.printf("Lezzet kodu: %-5s adi: %-20 adet: %-5s siparis tutari: %-5s Lira\n",
-                    order.dish.getCode(), order.dish.getName(), order.numberOfDish, order.orderPrice);
-            totalPrice = order.orderPrice;
+            System.out.printf("Lezzet kodu=%-5s adi=%-20 adet=%-5s siparis tutari=%-5s Lira\n", order.dish.getCode(), order.dish.getName(), order.numberOfDish, order.orderPrice);
+            totalPrice += order.orderPrice;
         }
         System.out.println("Toplam tutar : "+ totalPrice);
         System.out.println("Afiyet olsun...");
