@@ -16,7 +16,5 @@ public class Order {
         this.orderPrice = this.dish.getPrice()*this.numberOfDish;
     }
 
-    
-
 
 }
