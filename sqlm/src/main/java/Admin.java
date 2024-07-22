@@ -6,6 +6,9 @@ public class Admin extends Kullanici {
 
     @Override
     public void menu() {
+        System.out.println("Hosgeldiniz Admin");
+        System.out.println("1-Kullanici Ekle");
+        System.out.println("2-Kullanici Sil");
 
     }
 }
