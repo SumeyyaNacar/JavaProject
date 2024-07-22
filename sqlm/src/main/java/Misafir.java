@@ -6,6 +6,10 @@ public class Misafir extends Kullanici{
 
     @Override
     public void menu() {
+        System.out.println("Hosgeldiniz Misafir");
+        System.out.println("1-Urun Satin Al");
+        System.out.println("2-Urun Iade Et");
+
 
     }
 }
