@@ -87,14 +87,14 @@ public class KullaniciIslemleri {
         for (Kullanici kullanici : kullanicilar) {
             System.out.println("ID: " + kullanici.getId() + ", Adı: " + kullanici.getKullaniciAdi() + ", Rol: " + kullanici.getRol());
         }
-
         // AŞAĞIDA BU KODUN LAMBDA HALİ VARDIR. Bu tür ifadeleri lambda ile de yazacağız ki pekişşin bilgilerimiz.
         //kullanicilar.forEach(kullanici -> System.out.println("ID: " + kullanici.getId() +
         // ", Adı: " + kullanici.getKullaniciAdi() + ", Rol: " + kullanici.getRol()));
     }
-
     // Kullanıcı güncelleme işlemi
     // Bu metod, belirli bir kullanıcının şifresini günceller.
+
+    Scanner scanner = new Scanner(System.in);
     public void kullaniciGuncelle(int id) {
         // Bu metot parametre alır yani bura güncellenecek kullanıcı id'si girecek.
         // Burada kullanıcı güncelle metodu çağırılacaktır.
@@ -108,15 +108,26 @@ public class KullaniciIslemleri {
         // Eğer kullanici null ise, bu kullanıcı ID'ye sahip bir kullanıcı bulunamadığını gösterir.
         // Eğer değilse işlemi yapar
 
-        // İşte bir örnek
-        //  if (kullanici != null) {
-        //     Burada işlemi yapan kod olacak.
-        //     }
-        //  } else {
-        System.out.println("Kullanıcı bulunamadı.");
-        //  }
+         Kullanici kullanici = kullaniciBul(id);
+         if (kullanici!=null){
+             System.out.println("Yeni sifreyi giriniz : ");
+             String yeniSifre = scanner.nextLine();
+             kullanici.setSifre(yeniSifre);
+             System.out.println("Kullanici sifresi guncellendi");
+         }
 
+    }
 
+    // Kullanıcıyı ID'ye göre bulma işlemi
+    // Bu metod, belirli bir ID'ye sahip kullanıcıyı bulur ve döndürür.
+    public Kullanici kullaniciBul(int id) {
+        for (Kullanici kullanici:kullanicilar){
+            if (kullanici.getId()==id){
+                return kullanici;
+            }
+        }
+        // Metotda parametre olarak girilen id taranacak ve bulunacak burada yine null kontrolu yapılacak....
+        return null; // İle kullanıcı bulunamazsa null döndereceğiz ve ek olarak null ise kullanıcı bulunamadı mesajı göstereceğiz..
     }
 
     // Kullanıcı silme işlemi
@@ -124,13 +135,13 @@ public class KullaniciIslemleri {
     public void kullaniciSil(int id) {
         // Bu metot parametre alır yani bura güncellenecek kullanıcı id'si girecek.
         // Kullanıcı silme ve güncelleme işlemleri benzerdir. Yine kullanıcı var mı yokmu diye bakacağız, null gelmiyorsa işlem yapacağız.
-    }
-
-    // Kullanıcıyı ID'ye göre bulma işlemi
-    // Bu metod, belirli bir ID'ye sahip kullanıcıyı bulur ve döndürür.
-    public Kullanici kullaniciBul(int id) {
-        // Metotda parametre olarak girilen id taranacak ve bulunacak burada yine null kontrolu yapılacak....
-        return null; // İle kullanıcı bulunamazsa null döndereceğiz ve ek olarak null ise kullanıcı bulunamadı mesajı göstereceğiz..
+        Kullanici kullanici = kullaniciBul(id);
+        if (kullanici!=null){
+            kullanicilar.remove(kullanici);
+            System.out.println("Kullanici silindi");
+        }else {
+            System.out.println("Kullanici bulunamadi");
+        }
     }
 
     // Doktorları listeleme işlemi
@@ -138,10 +149,15 @@ public class KullaniciIslemleri {
     public List<Doktor> doktorlariListele() {
         // Bu metot içerisinde kullanıcılar  listesini başlatacağız
         // Sonra kullanıcılar listesinde döneceğiz ve kullanıcı doktor ise burada doktor listesine eklenecek..
-        // Örnek
-        List<Doktor> doktorlar = new ArrayList<>();
 
-        // Doktorlar listesini döndürürmediğimiz için şuan hata görüyorsunuz..
+        List<Doktor> doktorlar = new ArrayList<>();
+        for (Kullanici kullanici :kullanicilar){
+            if (kullanici instanceof Doktor){
+                doktorlar.add((Doktor) kullanici);
+            }
+        }
+
+        // Doktorlar listesini döndürmediğimiz için şuan hata görüyorsunuz..
         return  doktorlar;
     }
 
@@ -152,6 +168,11 @@ public class KullaniciIslemleri {
         //Örnek..
         List<Hasta> hastalar = new ArrayList<>(); // Hasta listesini başlatır.
         // Yine burada kullanıcı hasta ise hastalar listesine atacağız....
+        for (Kullanici kullanici:kullanicilar){
+            if (kullanici instanceof Hasta){
+                hastalar.add((Hasta) kullanici);
+            }
+        }
 
         return hastalar; // Hastalar listesini döndürür.
     }
@@ -170,4 +191,5 @@ public class KullaniciIslemleri {
            }
         }return null; // Kullanıcı adı veya şifre yanlış ise null döndürür.
     }
+
 }

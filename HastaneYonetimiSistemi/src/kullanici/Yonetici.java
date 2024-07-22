@@ -126,6 +126,18 @@ public class Yonetici extends Kullanici {
             switch (secim) {
                 case 1:
                     // Seçilen işlemle ilgili kodlar burada olacak.
+                    System.out.println("Kullanici rolu secin : 1-Dotor, 2-Hasta, 3-Yonetici");
+                    int rolSecim =scanner.nextInt();
+                    System.out.println("Kullanici Adi : ");
+                    String kullaniciAdi = scanner.nextLine();
+                    System.out.println("Sifre : ");
+                    String sifre =scanner.nextLine();
+                    if (rolSecim==1){
+                        System.out.println("Bransinizi girin");
+                        String brans = scanner.nextLine();
+                        kullaniciIslemleri.kullaniciEkle(new Doktor(0,kullaniciAdi,sifre,brans,kullaniciIslemleri));
+                    }
+
                     break;
                 case 2:
                     // Seçilen işlemle ilgili kodlar burada olacak.
