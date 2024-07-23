@@ -1,69 +1,124 @@
 package kullanici;
 
-import randevu.RandevuIslemleri; // Randevu işlemlerini gerçekleştirmek için gerekli sınıf
+import randevu.RandevuIslemleri;
+import bildirim.BildirimIslemleri;
+import hasta_bilgileri.HastaGecmisiIslemleri;
+import rapor.RaporIslemleri;
 
-import java.util.Scanner; // Kullanıcıdan veri almak için kullanılan sınıf
+import java.util.List;
+import java.util.Scanner;
 
-// Hasta sınıfı, Kullanici sınıfından türetilir ve hastaların sahip olduğu özellikler ve işlevler tanımlanır.
 public class Hasta extends Kullanici {
-    private int yas; // Hastanın yaşı
-    private RandevuIslemleri randevuIslemleri; // Randevu işlemleri için nesne
+    private int yas;
+    private RandevuIslemleri randevuIslemleri;
+    private BildirimIslemleri bildirimIslemleri;
+    private HastaGecmisiIslemleri hastaGecmisiIslemleri;
+    private RaporIslemleri raporIslemleri;
 
-    // Hasta sınıfının kurucusu
-    // Kurucu metod, hastanın kimlik numarası, adı, şifresi, yaşı ve kullanıcı işlemleri nesnesini alır.
-    // Bu bilgiler, hasta nesnesi oluşturulduğunda başlatılır.
-    public Hasta(int id, String kullaniciAdi, String sifre, int yas, KullaniciIslemleri kullaniciIslemleri) {
-        super(id, kullaniciAdi, sifre, "Hasta"); // Üst sınıfın (Kullanici) kurucu metodunu çağırır.
-        this.yas = yas; // Hastanın yaşını başlatır.
-        //this.randevuIslemleri = new RandevuIslemleri(kullaniciIslemleri); // Randevu işlemleri nesnesini başlatır.
+    private static final String RESET = "\u001B[0m";
+    private static final String RED = "\u001B[31m";
+    private static final String GREEN = "\u001B[32m";
+    private static final String YELLOW = "\u001B[33m";
+    private static final String BLUE = "\u001B[34m";
+    private static final String PURPLE = "\u001B[35m";
+    private static final String CYAN = "\u001B[36m";
+
+    public Hasta(int id, String kullaniciAdi, String sifre, int yas, KullaniciIslemleri kullaniciIslemleri, HastaGecmisiIslemleri hastaGecmisiIslemleri) {
+        super(id, kullaniciAdi, sifre, "Hasta");
+        this.yas = yas;
+        this.randevuIslemleri = kullaniciIslemleri.getRandevuIslemleri();
+        this.bildirimIslemleri = kullaniciIslemleri.getBildirimIslemleri();
+        this.hastaGecmisiIslemleri = hastaGecmisiIslemleri;
+        this.raporIslemleri = new RaporIslemleri();
     }
 
     public int getYas() {
-        return yas; // Hastanın yaşını döndürür.
+        return yas;
     }
 
     @Override
-
-    // @Override ifadesi, bir metodun üst sınıftan (Kullanici) miras alındığını ve
-    // bu metodun alt sınıfta (Doktor) yeniden tanımlandığını belirtir.
-    // ve bu, polymorphism kavramının bir örneğidir.
-    // Üst sınıftaki soyut metod (abstract method) alt sınıfta somut  hale getirilir.
-    // Üst sınıfta yer alan bu metot extend edilen claslarda da kullanımak zorundaydı.
-    // Üst sınıfta içi boşken burada doldu ve somut hala geldi.
-
     public void menu() {
-        Scanner scanner = new Scanner(System.in); // Kullanıcıdan veri almak için Scanner nesnesi oluşturur.
-        while (true) { // Sonsuz döngü, kullanıcı menüden çıkana kadar devam eder.
-            System.out.println("Hasta Menüsü:");
-            System.out.println("1. Yeni Randevu Oluşturma");
-            System.out.println("2. Randevuları Listeleme");
-            System.out.println("3. Randevu İptali");
-            System.out.println("4. Geri Dön");
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n****************************************");
+            System.out.println("**** Hasta Menüsü ****");
+            System.out.println(RED + "1. Yeni Randevu Oluşturma" + RESET);
+            System.out.println(GREEN + "2. Randevuları Listeleme" + RESET);
+            System.out.println(YELLOW + "3. Randevu İptali" + RESET);
+            System.out.println(BLUE + "4. Bildirimleri Görüntüleme" + RESET);
+            System.out.println(PURPLE + "5. Reçetelerim" + RESET);
+            System.out.println(CYAN + "6. Rapor Görüntüle" + RESET);
+            System.out.println(RED + "7. Geri Dön" + RESET);
+            System.out.println("****************************************");
+            System.out.print("Seçiminiz: ");
 
-            int secim = scanner.nextInt(); // Kullanıcının seçimini alır.
-            scanner.nextLine(); // Tamponu temizlemek için kullanılır.
+            int secim = scanner.nextInt();
+            scanner.nextLine();
 
             switch (secim) {
                 case 1:
-
-                    // Yeni randevu oluşturma metodu çağırlacak.
-                    // Farklı bir pakette yer alan bir classta bu metot.
-                    // (randevu paketinde, randevuIslemleri classında bunu yapan bir metot var)
-                    // Yukarıda Oluşturduğumuz nesne ile çağıracağız.
+                    randevuIslemleri.yeniRandevuOlusturma(this.getId());
                     break;
                 case 2:
-                    // Randevuları listeleme işlemini yapan metodu çağıracak.
+                    randevuIslemleri.randevulariListele(this.getId());
                     break;
                 case 3:
                     System.out.print("Randevu ID: ");
-                    int randevuId = scanner.nextInt(); // Kullanıcının iptal etmek istediği randevunun ID'sini alır.
-                    // Randevu iptal işlemi metodu çağırılacak, o metot bir parametre almalı. Buradan alınan ID o metoda verilecek
-                    // Ve o metot bu id'yi arayıp bulup silecek.
+                    int randevuId = scanner.nextInt();
+                    randevuIslemleri.randevuSil(randevuId);
                     break;
                 case 4:
-                    return; // Menüden geri dön
+                    bildirimleriGoruntuleme();
+                    break;
+                case 5:
+                    recetelerimiGoruntule();
+                    break;
+                case 6:
+                    raporIslemleri.raporGoruntule(this.getId());
+                    break;
+                case 7:
+                    return;
                 default:
                     System.out.println("Geçersiz seçim!");
+            }
+        }
+    }
+
+    private void bildirimleriGoruntuleme() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n**** Bildirimleri Görüntüleme ****");
+            System.out.println("1. Bana Özel Bildirimler");
+            System.out.println("2. Tüm Kullanıcılara Gönderilen Bildirimler");
+            System.out.println("3. Geri Dön");
+            System.out.print("Seçiminiz: ");
+
+            int secim = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (secim) {
+                case 1:
+                    bildirimIslemleri.bildirimleriListele(this.getId(), true);
+                    break;
+                case 2:
+                    bildirimIslemleri.bildirimleriListele(this.getId(), false);
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Geçersiz seçim!");
+            }
+        }
+    }
+
+    private void recetelerimiGoruntule() {
+        System.out.println("Reçetelerim:");
+        List<String> receteler = hastaGecmisiIslemleri.hastaReceteleriniGoruntule(this.getId());
+        if (receteler.isEmpty()) {
+            System.out.println("Reçeteniz bulunmamaktadır.");
+        } else {
+            for (String recete : receteler) {
+                System.out.println(recete);
             }
         }
     }
