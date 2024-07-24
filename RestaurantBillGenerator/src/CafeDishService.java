@@ -1,2 +1,4 @@
-public class CafeDishService {
+public class CafeDishService extends DishService {
+
+
 }
