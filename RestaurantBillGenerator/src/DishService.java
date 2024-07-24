@@ -39,7 +39,7 @@ public class DishService {
 
 
     }
-    public Dish findDishCode(int code){
+    public Dish findDishCode(int code){//orderservice'de kullanildi
         if (code == 0){
             System.out.println("Ana menuye yonlendiriliyorsunuz");
         }else {
