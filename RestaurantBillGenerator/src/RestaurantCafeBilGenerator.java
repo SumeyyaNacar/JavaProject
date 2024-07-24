@@ -8,6 +8,9 @@ public class RestaurantCafeBilGenerator {
 
     private static void start() {
         OrderService orderService= new OrderService();
+        System.out.println("Merhaba");
+        System.out.println("1-Restaurant");
+        System.out.println("2-Kafeterya");
         DishService dishService = new DishService();//object olusturduk
         dishService.fillDishList();//yemekler eklenecek
         getSelectionMenu(dishService,orderService);
