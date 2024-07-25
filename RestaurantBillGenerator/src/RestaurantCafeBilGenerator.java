@@ -7,13 +7,23 @@ public class RestaurantCafeBilGenerator {
     }
 
     private static void start() {
-        OrderService orderService= new OrderService();
+        Scanner inp = new Scanner(System.in);
+
         System.out.println("Merhaba");
         System.out.println("1-Restaurant");
         System.out.println("2-Kafeterya");
-        DishService dishService = new DishService();//object olusturduk
-        dishService.fillDishList();//yemekler eklenecek
-        getSelectionMenu(dishService,orderService);
+        int option = inp.nextInt();
+        OrderService orderService= new OrderService();
+        if (option==1){
+            DishService dishService = new DishService();//object olusturduk
+            dishService.fillDishList();//yemekler eklenecek
+            getSelectionMenu(dishService,orderService);
+        }else {
+            DishService cafeDishService = new CafeDishService();
+            cafeDishService.fillDishList();
+            getSelectionMenu(cafeDishService,orderService);
+        }
+        
     }
     public static void getSelectionMenu(DishService dishService, OrderService orderService){//obje olusturarak cagirmak yerine data type olarak parametre girdik
         Scanner input = new Scanner(System.in);
