@@ -23,7 +23,7 @@ public class RestaurantCafeBilGenerator {
             cafeDishService.fillDishList();
             getSelectionMenu(cafeDishService,orderService);
         }
-        
+
     }
     public static void getSelectionMenu(DishService dishService, OrderService orderService){//obje olusturarak cagirmak yerine data type olarak parametre girdik
         Scanner input = new Scanner(System.in);
