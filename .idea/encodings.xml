@@ -3,10 +3,21 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/AdamAsmaca/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/AdamAsmaca/src/main/resources" charset="UTF-8" />
+<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$/InterviewSorular/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/InterviewSorular/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RastgeleSifreOlusturucu/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RastgeleSifreOlusturucu/src/main/resources" charset="UTF-8" />
+=======
+    <file url="file://$PROJECT_DIR$/InterviewQuestions/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InterviewQuestions/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RastgeleSifreOlusturucu/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RastgeleSifreOlusturucu/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RenkTahminOyunu/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RenkTahminOyunu/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SayisalLoto/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SayisalLoto/src/main/resources" charset="UTF-8" />
+>>>>>>> afdabf43a8e1a2c1729202fdd613aa6958f2af80
     <file url="file://$PROJECT_DIR$/TasKagitMakasOyunu/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TasKagitMakasOyunu/src/main/resources" charset="UTF-8" />
   </component>

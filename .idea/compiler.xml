@@ -7,9 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TasKagitMakasOyunu" />
+<<<<<<< HEAD
         <module name="InterviewSorular" />
         <module name="RastgeleSifreOlusturucu" />
         <module name="AdamAsmaca" />
+=======
+        <module name="LotoProject" />
+        <module name="RastgeleSifreOlusturucu" />
+        <module name="RenkTahminOyunu" />
+        <module name="AdamAsmaca" />
+        <module name="InterviewQuestions" />
+>>>>>>> afdabf43a8e1a2c1729202fdd613aa6958f2af80
       </profile>
     </annotationProcessing>
   </component>

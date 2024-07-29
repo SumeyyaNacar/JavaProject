@@ -5,7 +5,13 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/AdamAsmaca/pom.xml" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/InterviewSorular/pom.xml" />
+=======
+        <option value="$PROJECT_DIR$/SayisalLoto/pom.xml" />
+        <option value="$PROJECT_DIR$/RenkTahminOyunu/pom.xml" />
+        <option value="$PROJECT_DIR$/InterviewQuestions/pom.xml" />
+>>>>>>> afdabf43a8e1a2c1729202fdd613aa6958f2af80
         <option value="$PROJECT_DIR$/TasKagitMakasOyunu/pom.xml" />
         <option value="$PROJECT_DIR$/RastgeleSifreOlusturucu/pom.xml" />
       </list>
